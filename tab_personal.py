@@ -3,17 +3,23 @@ import streamlit as st
 def render_tab_personal():
     st.header("Deine persönlichen Notizen")
 
-    if 'submissions' not in st.session_state:
-        st.session_state.submissions = []
+    #Streamlit-Chatbot-Tutorial: https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps
 
-    if 'area_input' not in st.session_state:
-        st.session_state.area_input = ''
+    # Speichern der Benutzereingaben
+    if 'prompts' not in st.session_state:
+        st.session_state.prompts = ["Alte Notizen", "Diese müssen zuerst noch richtig geladen werden"]
 
-    def submit():
-        st.session_state.submissions.append(st.session_state.input)
-        st.session_state.input = ''
+    # Alle Benutzereingaben anzeigen
+    for p in st.session_state.prompts:
+        st.write(f'{p}')
 
-    for submission in st.session_state.submissions:
-        st.write(f'{submission}')
+        #with st.chat_message("Nadja"):
+        #    st.write(f'{p}')
 
-    st.text_area('Notizen hinzufügen', key='input', on_change=submit)
+    # Chat-Box anzeigen
+    prompt = st.chat_input("Notizen hinzufügen")
+
+    # Neue Eingabe zum Array hinzufügen
+    if prompt:
+        st.session_state.prompts.append(prompt)
+        st.experimental_rerun()  #Page neu laden, um die Liste upzudaten
