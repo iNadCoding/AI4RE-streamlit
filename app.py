@@ -1,33 +1,22 @@
 import streamlit as st
 import requests
 
+from tab_collaborative import render_tab_collaborative
+from tab_harmonised import render_tab_harmonised
+from tab_personal import render_tab_personal
+
 st.title("KI4RE - REMOTE WORKSHOPS")
 
 
 # Beispielbutton -----------------------------------------
-tab1, tab2, tab3 = st.tabs(["Persönlich", "Kollaborativ", "Zusammengeführt"])
+tab_personal, tab_collaborative, tab_harmonised = st.tabs(["Persönlich", "Kollaborativ", "KI-Harmonisiert"])
 
-with tab1:
-   st.header("Deine persönlichen Notizen")
+with tab_personal:
+   render_tab_personal()
 
-   if 'submissions' not in st.session_state:
-      st.session_state.submissions = []
+with tab_collaborative:
+   render_tab_collaborative()
 
-   if 'area_input' not in st.session_state:
-      st.session_state.area_input = ''
-
-   def submit():
-      st.session_state.submissions.append(st.session_state.input)
-      st.session_state.input = ''
-
-   for submission in st.session_state.submissions:
-      st.write(f'{submission}')
-
-   st.text_area('Notizen hinzufügen', key='input', on_change=submit)
-
-with tab2:
-   st.header("Eure gemeinsamen Notizen")
-
-with tab3:
-   st.header("Eure harmonisierten Notizen")
+with tab_harmonised:
+   render_tab_harmonised()
 
