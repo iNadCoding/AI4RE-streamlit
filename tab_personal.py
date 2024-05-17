@@ -5,12 +5,9 @@ def render_tab_personal():
 
     #Streamlit-Chatbot-Tutorial: https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps
 
-    # Speichern der Benutzereingaben
-    if 'prompts' not in st.session_state:
-        st.session_state.prompts = ["Alte Notizen", "Diese müssen zuerst noch richtig geladen werden"]
 
     # Alle Benutzereingaben anzeigen
-    for p in st.session_state.prompts:
+    for p in st.session_state.personal_prompts:
         st.write(f'{p}')
 
         #with st.chat_message("Nadja"):
@@ -21,5 +18,5 @@ def render_tab_personal():
 
     # Neue Eingabe zum Array hinzufügen
     if prompt:
-        st.session_state.prompts.append(prompt)
-        st.experimental_rerun()  #Page neu laden, um die Liste upzudaten
+        st.session_state.personal_prompts.append(prompt)
+        st.rerun()  #Page neu laden, um die Liste upzudaten

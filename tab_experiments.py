@@ -3,7 +3,7 @@ import random
 import time
 
 def render_tab_experiments():
-    st.header("Eure gemeinsamen Notizen")
+    st.header("Experimentelles")
 
 
     # CUSTOM BUTTON

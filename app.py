@@ -1,25 +1,20 @@
 import streamlit as st
-import requests
 import asyncio
 
-from tab_collaborative import render_tab_collaborative
-from tab_experiments import render_tab_experiments
-from tab_harmonised import render_tab_harmonised
-from tab_personal import render_tab_personal
+from GUI import render_gui
+from data_loader import simulate_fetch_data
 
-st.title("KI4RE - REMOTE WORKSHOPS")
 
-tab_personal, tab_collaborative, tab_harmonised, tab_experiments = st.tabs(
-   ["Persönlich", "Kollaborativ", "KI-Harmonisiert", "Experimente"])
+async def main():
+    st.title("KI4RE - REMOTE WORKSHOPS")
 
-with tab_personal:
-   render_tab_personal()
+    if 'personal_prompts' not in st.session_state:
+        st.session_state.personal_prompts = []
 
-with tab_collaborative:
-   render_tab_collaborative()
+        data = await simulate_fetch_data()
+        st.session_state.personal_prompts = data[0]
 
-with tab_harmonised:
-   render_tab_harmonised()
+    render_gui()
 
-with tab_experiments:
-   render_tab_experiments()
+if __name__ == "__main__":
+    asyncio.run(main())
