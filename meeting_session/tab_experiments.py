@@ -5,28 +5,6 @@ import time
 def render_tab_experiments():
     st.header("Experimentelles")
 
-
-    # CUSTOM BUTTON
-    st.markdown(
-        """
-        <style>
-        .stButton > button {
-            background-color: green;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-    if st.button('Styled Button'):
-        st.write("Button clicked!")
-
-
-
     # ---------------------------------------------------------------------------------------------------------
     st.title("Echo Bot")
 
