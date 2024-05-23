@@ -11,10 +11,10 @@ from aioresponses import aioresponses
 async def simulate_fetch_data():
 
     # Simulation von Warten auf Daten
-    await asyncio.sleep(2)
+    # await asyncio.sleep(2)
 
     return [
-        ["Geladene Eigene Notizen", "Notizenbeispiel"],
-        ["Geladene Gemeinsame Notizen", "Notizenbeispiel"],
-        ["KI-Aufbereitetes", "Notizenbeispiel"],
+        ["Geladene Eigene Notizen", "Notizenbeispiel"],  #Persönliche Notizen
+        ["Geladene Gemeinsame Notizen", "Notizenbeispiel"],  #Kollaborative Notizen
+        ["KI-Aufbereitetes", "Notizenbeispiel"], #Ki-Harmonisierte Notizen
     ]

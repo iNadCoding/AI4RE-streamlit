@@ -13,6 +13,9 @@ async def render_meeting_session():
 
         data = await simulate_fetch_data()
         st.session_state.personal_prompts = data[0]
+        st.session_state.collaborative_prompts = data[1]
+        st.session_state.harmonised_prompts = data[2]
+
 
     tab_personal, tab_collaborative, tab_harmonised, tab_experiments = st.tabs(
         ["Persönlich", "Kollaborativ", "KI-Harmonisiert", "Experimente"])

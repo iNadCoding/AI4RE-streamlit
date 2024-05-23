@@ -2,8 +2,13 @@ import streamlit as st
 import random
 import time
 
+from st_keyup import st_keyup
+
+
 def render_tab_experiments():
     st.header("Experimentelles")
+
+    st_keyup()
 
     # ---------------------------------------------------------------------------------------------------------
     st.title("Echo Bot")
