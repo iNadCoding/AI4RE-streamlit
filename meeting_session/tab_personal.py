@@ -1,8 +1,11 @@
 import streamlit as st
 
+from utils import st_cache_tests
+
+
 def render_tab_personal():
     st.header("Deine persönlichen Notizen")
-
+    st_cache_tests("render_tab_personal")
     #Streamlit-Chatbot-Tutorial: https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps
 
 
@@ -19,4 +22,3 @@ def render_tab_personal():
     # Neue Eingabe zum Array hinzufügen
     if prompt:
         st.session_state.personal_prompts.append(prompt)
-        st.rerun()  #Page neu laden, um die Liste upzudaten
