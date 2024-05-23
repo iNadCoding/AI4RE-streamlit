@@ -2,7 +2,7 @@ import streamlit as st
 import random
 import time
 
-from st_keyup import st_keyup
+from customcomponents.st_keyup import st_keyup
 
 
 def render_tab_experiments():
