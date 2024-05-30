@@ -2,9 +2,11 @@ import streamlit as st
 import random
 import time
 
-from customcomponents.st_keyup import st_keyup
+from components.st_keyup import st_keyup
 
-
+#https://docs.streamlit.io/develop/concepts/architecture/fragments
+#Fragment bewirkt, dass nicht immer die ganze Seite neu geladen wird
+@st.experimental_fragment
 def render_tab_experiments():
     st.header("Experimentelles")
 

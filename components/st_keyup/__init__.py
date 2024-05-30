@@ -13,7 +13,7 @@ _component_func = components.declare_component(
 
 # Create the python function that will be called
 def st_keyup(
-    label: str,
+    label: str = "Leeres Label",
     value: Optional[str] = "",
     key: Optional[str] = None,
 ):
@@ -28,7 +28,6 @@ def st_keyup(
     )
 
     return component_value
-
 
 def main():
     st.write("## Example")

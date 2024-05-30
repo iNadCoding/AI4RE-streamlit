@@ -1,5 +1,8 @@
 import streamlit as st
 
+#https://docs.streamlit.io/develop/concepts/architecture/fragments
+#Fragment bewirkt, dass nicht immer die ganze Seite neu geladen wird
+@st.experimental_fragment
 def render_tab_collaborative():
     st.header("Eure gemeinsamen Notizen")
 

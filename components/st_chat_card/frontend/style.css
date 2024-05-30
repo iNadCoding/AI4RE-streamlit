@@ -1,0 +1,23 @@
+body {
+  -webkit-tap-highlight-color: var(--text-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font);
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  padding-bottom: 10px;
+  border-color: var(--background-color);
+  background-color: var(--secondary-background-color);
+}
+
+.card-header {
+  border-bottom: 1px solid #eee;
+}
+
+.card-body {
+  padding-top: 10px;
+}
